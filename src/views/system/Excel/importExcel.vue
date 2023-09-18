@@ -7,22 +7,44 @@
   <el-card class="mt10">
     <el-table :data="tableData" border size="small"></el-table>
   </el-card>
+  <!-- <el-input v-model="state.person.name"></el-input>
+  <el-input v-model="state.person.age"></el-input> -->
 </template>
 <script setup>
-import { ref } from 'vue'
+import { watch, reactive } from "vue";
+import { ref } from "vue";
 // import XLSX from 'xlsx'
-import filesUpload from '../../../components/filesUpload.vue'
-const importRef = ref('')
-const tableData = ref([])
+import filesUpload from "../../../components/filesUpload.vue";
+const importRef = ref("");
+const tableData = ref([]);
 const importExcel = () => {
-  let params = {}
-  importRef.value.acceptParams(params)
-  console.log(importRef.value.acceptParams(params))
-}
+  let params = {};
+  importRef.value.acceptParams(params);
+  console.log(importRef.value.acceptParams(params));
+};
+const state = reactive({
+  firstName: "",
+  lastName: "",
+  age: 0,
+  // person: {
+  //   name: "",
+  //   age: "444",
+  // },
+});
 
 const gatewayData = (params) => {
-  console.log(params)
-}
+  console.log(params);
+};
+// watch(
+//   [state.person.name, state.person.age],
+//   (newValue, oldValue) => {
+//     console.log("person变化了", newValue, oldValue);
+//   },
+//   {
+//     immediate: true,
+//     // deep: true
+//   }
+// );
 </script>
 
 <style lang="scss" scoped>

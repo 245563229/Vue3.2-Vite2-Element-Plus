@@ -21,17 +21,17 @@
 </template>
 
 <script setup name="layout">
-import { useRouter, onBeforeRouteUpdate } from 'vue-router'
-import { ref, watch } from 'vue'
-import store from '../store/index.js'
-import Header from './header/index.vue'
-import Menu from './menu/index.vue'
-import tabs from './Tabs/index.vue'
-const themeConfig = store.getters.themeConfig
-console.log(themeConfig.backgroundColor)
+import { useRouter, onBeforeRouteUpdate } from "vue-router";
+import { ref, watch } from "vue";
+import store from "../store/index.js";
+import Header from "./header/index.vue";
+import Menu from "./menu/index.vue";
+import tabs from "./Tabs/index.vue";
+const themeConfig = store.getters.themeConfig;
+console.log(themeConfig.backgroundColor);
 
-let router = useRouter()
-const disabled = ref(false)
+let router = useRouter();
+const disabled = ref(false);
 // onMounted(() => {
 //   disabled.value = true
 //   setTimeout(() => {
@@ -42,20 +42,20 @@ const disabled = ref(false)
 watch(
   () => router.currentRoute.value.path,
   (newValue, oldValue) => {
-    console.log('watch', newValue)
-    console.log('watch', oldValue)
+    // console.log('watch', newValue)
+    // console.log('watch', oldValue)
     if (newValue == oldValue) {
     } else {
-      disabled.value = true
+      disabled.value = true;
       setTimeout(() => {
-        disabled.value = false
-      }, 1000)
+        disabled.value = false;
+      }, 1000);
     }
   },
   { immediate: true }
-)
+);
 </script>
 
 <style scoped lang="scss">
-@import './index.scss';
+@import "./index.scss";
 </style>

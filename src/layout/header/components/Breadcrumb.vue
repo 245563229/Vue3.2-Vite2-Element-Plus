@@ -4,8 +4,19 @@
   </el-icon>
   <el-breadcrumb separator="/" id="breadcrumb">
     <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="index">
-      <span class="no-redirect" v-if="index === breadcrumbList.length - 1" :style="{ color: themeConfig.footColor }">{{ item.meta.name }}</span>
-      <span class="redirect" v-else @click="handleRedirect(item.path)" :style="{ color: themeConfig.footColor }">{{ item.meta.name }}</span>
+      <span
+        class="no-redirect"
+        v-if="index === breadcrumbList.length - 1"
+        :style="{ color: themeConfig.footColor }"
+        >{{ item.meta.name }}</span
+      >
+      <span
+        class="redirect"
+        v-else
+        @click="handleRedirect(item.path)"
+        :style="{ color: themeConfig.footColor }"
+        >{{ item.meta.name }}</span
+      >
     </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
@@ -24,7 +35,7 @@ const globalStore = useStore();
 const themeConfig = store.getters.themeConfig;
 const initBreadcrumbList = () => {
   breadcrumbList.value = route.matched;
-  console.log(route.matched);
+  // console.log(route.matched);
 };
 const handleRedirect = (path) => {
   router.push(path);

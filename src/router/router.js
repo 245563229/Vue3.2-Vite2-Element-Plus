@@ -1,12 +1,10 @@
-import {
-  createRouter,
-  createWebHashHistory
-} from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import home from "../views/home/index.vue";
 import login from "../views/login/index.vue";
 import Layout from "../layout/index.vue";
 
-const routes = [{
+const routes = [
+  {
     path: "/login",
     name: login,
     component: login,
@@ -20,15 +18,17 @@ const routes = [{
       requiresAuth: true, //有一些页面是否登录才能进去
       name: "首页",
     },
-    children: [{
-      path: "/home",
-      name: "home",
-      component: () => import("../views/home/index.vue"),
-      meta: {
-        requiresAuth: true, //有一些页面是否登录才能进去
-        name: "首页",
+    children: [
+      {
+        path: "/home",
+        name: "home",
+        component: () => import("../views/home/index.vue"),
+        meta: {
+          requiresAuth: true, //有一些页面是否登录才能进去
+          name: "首页",
+        },
       },
-    }, ],
+    ],
   },
   {
     path: "/form",
@@ -37,7 +37,8 @@ const routes = [{
     meta: {
       name: "表单页",
     },
-    children: [{
+    children: [
+      {
         path: "/baseForm",
         name: "baseForm",
         component: () => import("../views/form/baseForm.vue"),
@@ -64,6 +65,15 @@ const routes = [{
           name: "高级表单",
         },
       },
+      {
+        path: "/addTable",
+        name: "addTable",
+        component: () => import("../views/form/addTable.vue"),
+        meta: {
+          requiresAuth: true, //有一些页面是否登录才能进去
+          name: "可编辑表单表格",
+        },
+      },
     ],
   },
   {
@@ -73,7 +83,8 @@ const routes = [{
     meta: {
       name: "系统管理",
     },
-    children: [{
+    children: [
+      {
         path: "/Department",
         name: "Department",
         component: () => import("../views/system/Department/index.vue"),
@@ -127,7 +138,8 @@ const routes = [{
     meta: {
       name: "异常页面",
     },
-    children: [{
+    children: [
+      {
         path: "/404",
         name: "404",
         component: () => import("../views/ErrorMessage/404.vue"),
@@ -154,7 +166,8 @@ const routes = [{
     meta: {
       name: "列表页",
     },
-    children: [{
+    children: [
+      {
         path: "/goodCategory",
         name: "goodCategory",
         component: () => import("../views/goods/goodCategory.vue"),
@@ -190,7 +203,8 @@ const routes = [{
     meta: {
       name: "功能",
     },
-    children: [{
+    children: [
+      {
         path: "/watermark",
         name: "watermark",
         component: () => import("../views/able/watermark.vue"),
@@ -280,6 +294,33 @@ const routes = [{
           name: "内嵌页",
         },
       },
+      {
+        path: "/deebug",
+        name: "deebug",
+        component: () => import("../views/able/deebug.vue"),
+        meta: {
+          requiresAuth: true,
+          name: "内嵌页",
+        },
+      },
+      {
+        path: "/toTree",
+        name: "toTree",
+        component: () => import("../views/able/toTree.vue"),
+        meta: {
+          requiresAuth: true, //有一些页面是否登录才能进去
+          name: "递归生成树状结构",
+        },
+      },
+      {
+        path: "/statusDotList",
+        name: "statusDotList",
+        component: () => import("../views/able/statusDotList.vue"),
+        meta: {
+          requiresAuth: true, //有一些页面是否登录才能进去
+          name: "状态圆点",
+        },
+      },
     ],
   },
   {
@@ -289,15 +330,17 @@ const routes = [{
     meta: {
       name: "图形编辑器",
     },
-    children: [{
-      path: "/flowCat",
-      name: "flowCat",
-      component: () => import("../views/flow/flowCat.vue"),
-      meta: {
-        requiresAuth: true,
-        name: "流程图",
+    children: [
+      {
+        path: "/flowCat",
+        name: "flowCat",
+        component: () => import("../views/flow/flowCat.vue"),
+        meta: {
+          requiresAuth: true,
+          name: "流程图",
+        },
       },
-    }, ],
+    ],
   },
   {
     path: "/echarts",
@@ -306,7 +349,8 @@ const routes = [{
     meta: {
       name: "图表",
     },
-    children: [{
+    children: [
+      {
         path: "/baidumap",
         name: "baidumap",
         component: () => import("../views/echarts/map/baidumap.vue"),
@@ -325,30 +369,41 @@ const routes = [{
         },
       },
       {
-        path: '/histogram',
-        name: 'histogram',
-        component: () => import('../views/echarts/histogram.vue'),
+        path: "/histogram",
+        name: "histogram",
+        component: () => import("../views/echarts/histogram.vue"),
         mate: {
           requiresAuth: true,
-          name: '柱状图'
-        }
-      }, {
-        path: '/line',
-        name: 'line',
-        component: () => import('../views/echarts/line.vue'),
+          name: "柱状图",
+        },
+      },
+      {
+        path: "/line",
+        name: "line",
+        component: () => import("../views/echarts/line.vue"),
         meta: {
           requiresAuth: true,
-          name: '折线图'
-        }
-      }, {
-        path: '/radar',
-        name: 'radar',
-        component: () => import('../views/echarts/radar.vue'),
+          name: "折线图",
+        },
+      },
+      {
+        path: "/radar",
+        name: "radar",
+        component: () => import("../views/echarts/radar.vue"),
         meta: {
           requiresAuth: true,
-          name: '雷达图'
-        }
-      }
+          name: "雷达图",
+        },
+      },
+      {
+        path: "/echartsCeshi",
+        name: "echartsCeshi",
+        component: () => import("../views/echarts/echartsCeshi.vue"),
+        meta: {
+          requiresAuth: true,
+          name: "echarts测试",
+        },
+      },
     ],
   },
   {
@@ -358,15 +413,17 @@ const routes = [{
     meta: {
       name: "视频播放器",
     },
-    children: [{
-      path: "/video",
-      name: "video",
-      component: () => import("../views/video/index.vue"),
-      meta: {
-        requiresAuth: true,
-        name: "视频播放器",
+    children: [
+      {
+        path: "/video",
+        name: "video",
+        component: () => import("../views/video/index.vue"),
+        meta: {
+          requiresAuth: true,
+          name: "视频播放器",
+        },
       },
-    }, ],
+    ],
   },
   {
     path: "/DataReport",
@@ -375,15 +432,17 @@ const routes = [{
     meta: {
       name: "数据统计",
     },
-    children: [{
-      path: "/demo1",
-      name: "demo1",
-      component: () => import("../views/DataReport/demo1.vue"),
-      meta: {
-        requiresAuth: true,
-        name: "项目一",
+    children: [
+      {
+        path: "/demo1",
+        name: "demo1",
+        component: () => import("../views/DataReport/demo1.vue"),
+        meta: {
+          requiresAuth: true,
+          name: "项目一",
+        },
       },
-    }, ],
+    ],
   },
   {
     path: "/material",
@@ -392,15 +451,17 @@ const routes = [{
     meta: {
       name: "素材管理",
     },
-    children: [{
-      path: "/materialIndex",
-      name: "materialIndex",
-      component: () => import("../views/material/materialIndex.vue"),
-      meta: {
-        requiresAuth: true,
-        name: "素材管理",
+    children: [
+      {
+        path: "/materialIndex",
+        name: "materialIndex",
+        component: () => import("../views/material/materialIndex.vue"),
+        meta: {
+          requiresAuth: true,
+          name: "素材管理",
+        },
       },
-    }, ],
+    ],
   },
   {
     path: "/directives",
@@ -409,7 +470,8 @@ const routes = [{
     meta: {
       name: "自定义指令",
     },
-    children: [{
+    children: [
+      {
         path: "/Drag",
         name: "Drag",
         component: () => import("../views/directives/Drag.vue"),
@@ -463,15 +525,17 @@ const routes = [{
     meta: {
       name: "个人中心",
     },
-    children: [{
-      path: "/user",
-      name: "user",
-      component: () => import("../views/users/index.vue"),
-      meta: {
-        requiresAuth: true,
-        name: "关于我",
+    children: [
+      {
+        path: "/user",
+        name: "user",
+        component: () => import("../views/users/index.vue"),
+        meta: {
+          requiresAuth: true,
+          name: "关于我",
+        },
       },
-    }]
+    ],
   },
 ];
 
