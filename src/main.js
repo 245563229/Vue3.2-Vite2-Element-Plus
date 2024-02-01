@@ -19,7 +19,8 @@ import "@kangc/v-md-editor/lib/style/base-editor.css";
 import "@kangc/v-md-editor/lib/theme/style/vuepress.css";
 
 VMdEditor.use(vuepressTheme);
-
+// 百度地图ak
+// KCUaza9O371B1iKZT9gxExas0rivVar9
 const app = createApp(App);
 
 // 小图标引用

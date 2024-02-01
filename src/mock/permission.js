@@ -42,7 +42,6 @@ let menuList = [
         ],
       },
       {
-        title: "/system",
         title: "表格管理",
         icon: "Grid",
         children: [
@@ -329,6 +328,18 @@ let menuList = [
         url: "/user",
         title: "关于我",
         icon: "Menu",
+      },
+    ],
+  },
+  {
+    url: "/studyJava",
+    title: "关联后端学习",
+    icon: "Avatar",
+    children: [
+      {
+        url: "/tableList",
+        title: "关联后端学习",
+        icon: "表格页",
       },
     ],
   },

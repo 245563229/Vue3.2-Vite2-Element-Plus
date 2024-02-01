@@ -28,7 +28,7 @@ import Header from "./header/index.vue";
 import Menu from "./menu/index.vue";
 import tabs from "./Tabs/index.vue";
 const themeConfig = store.getters.themeConfig;
-console.log(themeConfig.backgroundColor);
+// console.log(themeConfig.backgroundColor);
 
 let router = useRouter();
 const disabled = ref(false);

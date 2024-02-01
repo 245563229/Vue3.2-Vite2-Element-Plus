@@ -518,21 +518,40 @@ const routes = [
       },
     ],
   },
+  // {
+  //   path: "/users",
+  //   name: "users",
+  //   component: Layout,
+  //   meta: {
+  //     name: "个人中心",
+  //   },
+  //   children: [
+  //     {
+  //       path: "/user",
+  //       name: "user",
+  //       component: () => import("../views/users/index.vue"),
+  //       meta: {
+  //         requiresAuth: true,
+  //         name: "关于我",
+  //       },
+  //     },
+  //   ],
+  // },
   {
-    path: "/users",
-    name: "users",
+    path: "/studyJava",
+    name: "studyJava",
     component: Layout,
     meta: {
-      name: "个人中心",
+      name: "关联后端学习",
     },
     children: [
       {
-        path: "/user",
-        name: "user",
-        component: () => import("../views/users/index.vue"),
+        path: "/tableList",
+        name: "tableList",
+        component: () => import("../views/studyJava/tableList.vue"),
         meta: {
           requiresAuth: true,
-          name: "关于我",
+          name: "表格页",
         },
       },
     ],

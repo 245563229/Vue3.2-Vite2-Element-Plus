@@ -1,5 +1,5 @@
 <template>
-  <el-card class="col-center">
+  <!-- <el-card class="col-center">
     <el-form :model="form" label-width="120px">
       <el-form-item label="活动名称">
         <el-input v-model="form.name" />
@@ -55,25 +55,69 @@
         <el-button>取消</el-button>
       </el-form-item>
     </el-form>
+  </el-card> -->
+  <p>带表单验证的</p>
+  <el-card class="col-center">
+    <el-form
+      ref="ruleFormRef"
+      :model="ruleForm"
+      :rules="rules"
+      label-width="120px"
+      class="demo-ruleForm"
+    >
+      <el-form-item label="名字" prop="name">
+        <el-input v-model="ruleForm.name" />
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="submitForm">验证</el-button>
+      </el-form-item>
+    </el-form>
   </el-card>
 </template>
 
-<script lang="ts" setup>
-import { reactive } from 'vue'
-
+<script setup>
+import { valid } from "mockjs";
+import { reactive, ref } from "vue";
+const ruleFormRef = ref();
 // do not use same name with ref
 const form = reactive({
-  name: '',
-  region: '',
-  date1: '',
-  date2: '',
+  name: "",
+  region: "",
+  date1: "",
+  date2: "",
   delivery: false,
   type: [],
-  resource: '',
-  desc: '',
-})
-
+  resource: "",
+  desc: "",
+});
+const ruleForm = reactive({
+  name: "",
+});
+const nameChange = (rule, value, callback) => {
+  if (!value) {
+    return callback(new Error("请填写名字"));
+  } else {
+    return callback();
+  }
+};
+const rules = {
+  name: [
+    {
+      validator: nameChange,
+      trigger: "blur",
+    },
+  ],
+};
+const submitForm = async () => {
+  ruleFormRef.value.validate((valid) => {
+    if (valid) {
+      alert("ok");
+    } else {
+      alert("no");
+    }
+  });
+};
 const onSubmit = () => {
-  console.log('submit!')
-}
+  console.log("submit!");
+};
 </script>
