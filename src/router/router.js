@@ -321,6 +321,15 @@ const routes = [
           name: "状态圆点",
         },
       },
+      {
+        path: "/createPriceStr",
+        name: "createPriceStr",
+        component: () => import("../views/able/createPriceStr.vue"),
+        meta: {
+          requiresAuth: true, //有一些页面是否登录才能进去
+          name: "金额数字逗号分隔",
+        },
+      },
     ],
   },
   {

@@ -236,6 +236,11 @@ let menuList = [
         title: "表格等状态圆点",
         icon: "Menu",
       },
+      {
+        url: "/createPriceStr",
+        title: "金额数字逗号分隔",
+        icon: "Menu",
+      },
     ],
   },
   {

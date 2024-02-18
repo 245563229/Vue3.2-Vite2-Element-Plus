@@ -5,7 +5,7 @@ import vue from "@vitejs/plugin-vue";
 import {
   viteMockServe
 } from "vite-plugin-mock";
-
+import {resolve} from 'path'
 import viteCompression from "vite-plugin-compression";
 
 export default defineConfig({
@@ -26,6 +26,11 @@ export default defineConfig({
       ext: ".gz",
     }),
   ],
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "./src")
+    }
+  },
   build: {
     terserOptions: {
       compress: {
