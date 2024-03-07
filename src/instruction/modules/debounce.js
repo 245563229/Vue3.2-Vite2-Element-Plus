@@ -12,11 +12,11 @@ const debounce = {
     let timer = null;
     el.__handleClick__ = function () {
       // if (timer) clearInterval(timer);
-      //   
+      //
       timer && clearTimeout(timer)
       timer = setTimeout(() => {
         binding.value();
-      }, 3000);
+      }, 1000);
     };
     el.addEventListener("click", el.__handleClick__);
   },

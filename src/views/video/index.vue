@@ -11,9 +11,14 @@
 import { reactive } from 'vue'
 // //找到你的组件地址引入进来
 import VideoJs from '../../components/VideoPlay.vue'
+import videoSrc from '../../assets/stuy.mp4'
 const data = reactive({
-  videoSrc:
-    'https://prod-streaming-video-msn-com.akamaized.net/178161a4-26a5-4f84-96d3-6acea1909a06/2213bcd0-7d15-4da0-a619-e32d522572c0.mp4',
+
+  videoSrc: videoSrc
+
+
+  // videoSrc:
+  //   'https://prod-streaming-video-msn-com.akamaized.net/178161a4-26a5-4f84-96d3-6acea1909a06/2213bcd0-7d15-4da0-a619-e32d522572c0.mp4',
 })
 </script>
 <style lang="scss" scoped>
