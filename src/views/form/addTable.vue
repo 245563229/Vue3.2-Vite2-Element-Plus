@@ -155,7 +155,7 @@
   </el-card>
 </template>
 <script setup>
-import { reactive, ref } from "vue";
+import {onUnmounted, onMounted,reactive, ref} from "vue";
 import { ElMessage } from "element-plus";
 const formSize = ref("default");
 const baseFormSell = ref(null);
@@ -300,8 +300,6 @@ const selectDictLabel = (datas, value) => {
   });
   return actions.join("");
 };
-
-//字典翻译
 //资产类型
 const buildPropertyTypeStatus = (row, column) => {
   return selectDictLabel(state.dictionary.buildPropertyType, row);
@@ -310,6 +308,17 @@ const buildPropertyTypeStatus = (row, column) => {
 const buildFormatStatus = (row, column) => {
   return selectDictLabel(state.dictionary.buildFormat, row);
 };
+// 离开页面确认
+const confirmLeave = (e)=>{
+  e.returnValue = "离开此页面？" // 此处返回任意字符串，不返回null即可，不能修改默认提示内容
+}
+onMounted(()=>{
+  window.addEventListener("beforeunload", confirmLeave, false)
+
+})
+onUnmounted(()=>{
+  window.addEventListener("beforeunload", confirmLeave, false)
+})
 </script>
 <style lang="scss" scoped>
 .tableClass {
