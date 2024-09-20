@@ -33,7 +33,9 @@ import { noticeLists } from "../../../api/modules/index.js";
 const visible = ref(false);
 const activeName = ref("first");
 const notList = ref("first");
+const handleClick = ()=>{
 
+}
 onMounted(() => {
   nextTick(() => {
     noticeLists().then((res) => {

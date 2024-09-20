@@ -54,7 +54,7 @@ const themeConfig = store.getters.themeConfig
 onMounted(() => {
   getMenuList().then((res) => {
     menuList.value = res.data.data.menuList
-    console.log(menuItems.value)
+    // console.log(menuItems.value)
   })
 })
 </script>

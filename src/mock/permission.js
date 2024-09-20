@@ -1,6 +1,7 @@
 // 引入mockjs
 import Mock from "mockjs";
-import { options } from "../views/home/options";
+import {options} from "../views/home/options";
+
 const Random = Mock.Random;
 
 let menuList = [
@@ -44,6 +45,7 @@ let menuList = [
       {
         title: "表格管理",
         icon: "Grid",
+        url: "/table",
         children: [
           {
             url: "/Department",
@@ -232,6 +234,11 @@ let menuList = [
         icon: "Menu",
       },
       {
+        url: "/calendar",
+        title: "日历",
+        icon: "Menu",
+      },
+      {
         url: "/statusDotList",
         title: "表格等状态圆点",
         icon: "Menu",
@@ -352,7 +359,7 @@ let menuList = [
 
 export const LoginInfo = (options) => {
   console.log(options, "接收post参数");
-  const { username, password } = JSON.parse(options.body);
+  const {username, password} = JSON.parse(options.body);
   if (username == "admin" && password != "123456") {
     return {
       code: "-200",
@@ -368,7 +375,7 @@ export const LoginInfo = (options) => {
         name: Random.cname(),
         token: Random.guid(),
         image:
-          "https://img2.baidu.com/it/u=2859542338,3761174075&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1660064400&t=6fe6057370cbe369654ff2e132d02a37",
+            "https://img2.baidu.com/it/u=2859542338,3761174075&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1660064400&t=6fe6057370cbe369654ff2e132d02a37",
       },
     };
   }
@@ -494,9 +501,9 @@ export const orderLists = (options) => {
   return {
     total: 60,
     data:
-      obj.size == 10
-        ? orderList.slice(obj.size * obj.page - obj.size, obj.size * obj.page)
-        : orderList,
+        obj.size == 10
+            ? orderList.slice(obj.size * obj.page - obj.size, obj.size * obj.page)
+            : orderList,
   };
 };
 

@@ -313,6 +313,15 @@ const routes = [
         },
       },
       {
+        path: "/calendar",
+        name: "calendar",
+        component: () => import("../views/able/calendar/calendar.vue"),
+        meta: {
+          requiresAuth: true, //有一些页面是否登录才能进去
+          name: "日历",
+        },
+      },
+      {
         path: "/statusDotList",
         name: "statusDotList",
         component: () => import("../views/able/statusDotList.vue"),
@@ -321,6 +330,8 @@ const routes = [
           name: "状态圆点",
         },
       },
+
+
       {
         path: "/createPriceStr",
         name: "createPriceStr",
@@ -430,6 +441,15 @@ const routes = [
         meta: {
           requiresAuth: true,
           name: "视频播放器",
+        },
+      },
+      {
+        path: "/voice",
+        name: "voice",
+        component: () => import("../views/voice/index.vue"),
+        meta: {
+          requiresAuth: true,
+          name: "音频播放器",
         },
       },
     ],

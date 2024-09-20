@@ -22,7 +22,7 @@ provide("reload", reload);
 onMounted(() => {
   globalStore.dispatch("user/changeThem", "#4060c7");
   // console.log("city", city);
-  console.log('business',business)
+  // console.log('business',business)
   const newBuss =[]
   business.forEach((element) => {
     const newCon = {
@@ -45,7 +45,7 @@ onMounted(() => {
     });
     newBuss.push(newCon)
   });
-  console.log('newBuss',newBuss)
+  // console.log('newBuss',newBuss)
   // console.log("city", city);
 });
 </script>
